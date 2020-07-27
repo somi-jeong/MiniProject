@@ -1,0 +1,74 @@
+﻿@model VocaMvc.Models.Voca
+
+
+
+@if(@Model.Id == 0){
+ViewData["Title"] = "単語帳-追加";
+    <h1 style="background-color:#f33513; color:white; font-weight:500">単語帳-追加</h1>
+}
+else
+{
+ ViewData["Title"] = "単語帳-更新";
+<h1 style="background-color:#f33513; color:white; font-weight:500">単語帳-更新</h1>
+}
+    
+<div class="form-body">
+
+    @using (Html.BeginForm())
+        {
+    @Html.HiddenFor(model => model.Id)
+
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Word)
+        @Html.EditorFor(model => model.Word)
+        @Html.ValidationMessageFor(model => model.Word)
+
+    </div>
+
+
+
+    @if(@Model.Id == 0){
+    <div class="form-group" style="display:none">
+        <label asp-for="EnrollmentDate" class="control-label"></label>
+        作成日: @Html.TextBox("EnrollmentDate", DateTime.Now, new { @readonly = "readonly", @style = "border: none;" })
+        <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
+    </div>
+    <div class="form-group" style="display:none">
+        <label asp-for="EditDate" class="control-label"></label>
+        更新日: @Html.TextBox("EditDate", DateTime.Now, new { @readonly = "readonly", @style = "border: none;" })
+        <span asp-validation-for="EditDate" class="text-danger"></span>
+    </div>
+    }
+    else{
+    <div class="form-group">
+        <label asp-for="EnrollmentDate" class="control-label"></label><br>
+        作成日:@Html.TextBox("EnrollmentDate", Model.EnrollmentDate, new { @readonly = "readonly", @style = "border: none;" })
+        <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EditDate" class="control-label"></label><br>
+        更新日: @Html.TextBox("EditDate", DateTime.Now, new { @readonly = "readonly", @style = "border: none; margin-bottom:0;" })
+        <span asp-validation-for="EditDate" class="text-danger"></span>
+    </div>
+    }
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Meaning)
+        @Html.EditorFor(model => model.Meaning)
+        @Html.ValidationMessageFor(model => model.Meaning)
+
+    </div>
+
+    <div class="form-group" style="float:left;">
+        <a asp-action="Index" class="btn btn-primary" style="display: block; background-color: #f33513; width:70px">戻る</a>
+    </div>
+    <div class="form-group" style="float:left;">
+        <input type="submit" value="確定" class="btn btn-primary" style="display: block; background-color: #f33513; width:70px;" />
+    </div>
+
+        }
+
+    </div>
+
