@@ -4,11 +4,10 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1 style="background-color:#f33513; color:white; font-weight:500">単語帳-削除</h1>
+<h1 style="background-color:#e65100; color:white; font-weight:500;width:645px;">単語帳-削除</h1>
 
 <div>
 
-    <hr />
     <dl class="row">
 
         <dd class="col-sm-10" style="display:none">
@@ -16,7 +15,7 @@
         </dd>
 
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Word)
+            <h1> @Html.DisplayFor(model => model.Word)</h1>
         </dd>
 
 
@@ -37,8 +36,8 @@
 </div>
 
 <div class="form-group" style="float:left;">
-    <a asp-action="Index" class="btn btn-primary" style="display: block; background-color: #f33513; width:70px">戻る</a>
+    <a asp-action="Index" class="btn btn-primary" style="display: block; border:0; outline:0;background-color: #BDBDBD; width:70px;position: relative; left:491px;">戻る</a>
 </div>
 <div class="form-group" style="float:left;">
-    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-primary" style="display: block; background-color: #f33513; width:70px">確定</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-primary" style="display: block; border:0; outline:0;background-color: #f33513; width:70px;position: relative; left:506px;">確定</a>
 </div>

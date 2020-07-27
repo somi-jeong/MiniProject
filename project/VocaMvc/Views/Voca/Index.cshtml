@@ -5,7 +5,7 @@
 }
 
 @*<h1>単語帳</h1>*@
-    <h1 style="background-color:#f33513; color:white; font-weight:500">単語帳</h1>
+<h1 style="background-color:#e65100; color:white; font-weight:500; width:645px;">単語帳</h1>
 
 @foreach (var item in Model)
 {
@@ -29,18 +29,19 @@
             @Html.DisplayFor(modelItem => item.Meaning)
         </div>
         <br>
-        <div>
-            <a href="@Url.Action("DeleteConfirm","Voca",new{ id = item.Id})" class="btn-danger" style="display: block; background-color: #f33513; width: 50px;">削除</a>
-            <br>
-            <a href="@Url.Action("AddOrEdit","Voca",new{ id = item.Id})" class="btn-danger" style="display: block; background-color: #f33513; width: 50px;">更新</a>
 
+
+        <div style="margin:-58px;">
+            <a asp-action="DeleteConfirm" asp-route-id="@item.Id" class="btn btn-primary" style="display: block; border:0; outline:0; background-color: #e65100; width:70px;position: relative; left:634px;bottom:100px;">削除</a>
+            <br>
+            <a asp-action="AddOrEdit" asp-route-id="@item.Id" class="btn btn-primary" style="display: block; border:0; outline:0; background-color: #e65100; width:70px;position: relative; left:634px;bottom:110px;">更新</a>
         </div>
     </div>
     <hr />
 }
 <br>
 <p>
-    <a href="@Url.Action("AddOrEdit","Voca")" class="btn-danger" style="display: block; background-color: #f33513; height:25px; width: 1100px; text-align:center;font-weight:500;">+</a>
+    <a href="@Url.Action("AddOrEdit","Voca")" class="btn-danger" style="display: block; background-color: #e65100; height:48px; width: 645px; text-align:center;font-weight:500;font-size:30px;">+</a>
 </p>
 
 
