@@ -80,7 +80,7 @@ namespace VocaApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Voca>> PostVoca(Voca voca)
+        public async Task<ActionResult> PostVoca(Voca voca)
         {
             _context.Voca.Add(voca);
             await _context.SaveChangesAsync();
